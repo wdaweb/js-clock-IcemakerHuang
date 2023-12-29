@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Noto+Sans:wght@400;700&display=swap');
+
+        body {
+            padding: 0;
+            margin: 0;
+            height: 100vh;
+            background-image: url(./images/gui/main_menu.png);
+        }
+
+        .container {
+            margin: 0;
+            height: 100vh;
+            /* background-image: url(./images/gui/border.png);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center; */
+            position: relative;
+            overflow: hidden;
+        }
+
+        .border {
+            margin: 0;
+            height: 100vh;
+            background-image: url(./images/gui/border.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            position: relative;
+            z-index: 11;
+        }
+
+        .circle {
+            width: 1500px;
+            height: 1500px;
+
+            /* background-origin: border-box; */
+            /* background-position: center; */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 5;
+        }
+
+        .circle-main {
+            width: 100%;
+            height: 100%;
+            background-image: url(./images/gui/circle2.png);
+            background-size: contain;
+            background-repeat: no-repeat;
+
+            animation: ClockWise 30s steps(720) infinite;
+            transform-origin: center;
+
+            position: absolute;
+            top: 0%;
+            left: 0%;
+        }
+
+        .circle2 {
+            content: "";
+            width: 1450px;
+            height: 1450px;
+            background-image: url(./images/gui/circle1.png);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-origin: border-box;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 5;
+            /* transform-origin: center; */
+        }
+
+        .ray {
+            width: 1450px;
+            height: 1450px;
+
+            /* background-origin: border-box; */
+            /* position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 5; */
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 7;
+        }
+
+        .ray-main {
+            width: 100%;
+            height: 100%;
+            opacity: 0.6;
+            background-image: url(./images/gui/rays.png);
+            background-size: contain;
+            background-repeat: no-repeat;
+
+            animation: ClockWise 35s steps(720) infinite;
+            transform-origin: center;
+            position: absolute;
+            top: 0%;
+            left: 0%;
+        }
+
+        .core {
+            width: 700px;
+            height: 700px;
+            border-radius: 50%;
+            background-image: url(./images/gui/constellations-backing.png);
+            /* background-image: url(./images/gui/constellationsMain.png); */
+            background-size: contain;
+            background-repeat: no-repeat;
+            /* background-origin: border-box; */
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+
+        }
+
+        .core img {
+            width: 700px;
+            height: 700px;
+            animation: CounterClockWise 36s steps(720) infinite;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            transform-origin: center;
+            object-fit: fill;
+            object-position: center;
+        }
+
+        .meteor {
+            width: 1400px;
+            height: 1400px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 11;
+        }
+
+        .meteor-main {
+            width: 100%;
+            height: 100%;
+            background-image: url(./images/gui/comet1.png);
+            background-size: contain;
+            background-repeat: no-repeat;
+            /* background-origin: border-box; */
+            animation: CounterClockWise 35s steps(1080) infinite;
+            transform-origin: center;
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            object-fit: fill;
+            object-position: center;
+        }
+
+        .reel-clock {
+            /* width: 100%; */
+            width: 400px;
+            height: 80px;
+            background-image: url(./images/gui/namebox.png);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-origin: border-box;
+            position: absolute;
+            top: 85%;
+            left: 80%;
+            z-index: 12;
+        }
+
+        #text {
+            /* width: 100%; */
+            font-size: 30px;
+            color: rgb(246, 243, 235);
+            text-shadow: 1px 1px 6px black;
+            text-align: center;
+            position: absolute;
+            top: 10%;
+            left: 40%;
+            transform: translate(-50%, -50%);
+            z-index: 20;
+            font-family: 'Dancing Script', cursive;
+            /* font-family: 'Noto Sans', sans-serif; */
+        }
+
+        /* 動畫 */
+        /* 順時針 */
+        @keyframes ClockWise {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* 逆時針 */
+        @keyframes CounterClockWise {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(-360deg);
+            }
+        }
+
+        /* 範例 */
+        #clock {
+            width: 300px;
+            height: 300px;
+            background: rgba(0, 0, 0, 0.634);
+            margin: auto;
+            border-radius: 50%;
+            position: relative;
+            top: calc(50% - 150px);
+            /*使用 calc(50%-150px) 括弧沒空格會無效 */
+        }
+
+        #hour {
+            width: 20%;
+            height: 10px;
+            background: aqua;
+            position: absolute;
+            top: calc(50% - 5px);
+            left: 30%;
+            border-radius: 5px;
+            transform-origin: right center;
+            /* 改旋轉基準 */
+        }
+
+        #minute {
+            width: 100%;
+            /* height: 10px; */
+            /* background-image: url(./images/gear1.png); */
+            /* background: blueviolet; */
+            position: absolute;
+            top: calc(50% - 5px);
+            left: 10%;
+            border-radius: 5px;
+            transform-origin: right center;
+            /* 改旋轉基準 */
+        }
+
+        #second {
+            width: 45%;
+            height: 6px;
+            background: chartreuse;
+            position: absolute;
+            top: calc(50% - 3px);
+            left: 5%;
+            border-radius: 3px;
+            transform-origin: right center;
+            /* 改旋轉基準 */
+        }
+
+        /* #text {
+            width: 100%;
+            color: white;
+            text-align: center;
+            position: absolute;
+            top: 60%;
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="circle">
+            <div class="circle-main"></div>
+        </div>
+        <div class="circle2"></div>
+        <div class="ray">
+            <div class="ray-main"></div>
+        </div>
+        <div class="core">
+            <img src="./images/gui/constellationsMain.png" alt="">
+        </div>
+        <div class="meteor">
+            <div class="meteor-main"></div>
+        </div>
+        <div class="border"></div>
+
+        <div class="reel-clock">
+            <p id="text">00:00:00</p>
+        </div>
+        <!-- <div id="clock">
+            <div id="hour"></div>
+            <div id="minute"></div>
+            <div id="second"></div>
+            <p id="text">00:00:00</p>
+        </div> -->
+    </div>
+
+
+
+    <script>
+        // 先初版，之後完善時鐘指針
+        // const elHour = document.getElementById('hour')
+        // const elMinute = document.getElementById('minute')
+        // const elSecond = document.getElementById('second')
+        const elText = document.getElementById('text')
+
+        const clock = () => {
+            const date = new Date()
+            const hour = date.getHours()
+            const minute = date.getMinutes()
+            const second = date.getSeconds()
+            // 360/12=30 且預設位置與00:00 差90度，要加回
+            // elHour.style.transform = `rotate(${hour * 30 + 90}deg)`
+            // elMinute.style.transform = `rotate(${minute * 6 + 90}deg)`
+            // elSecond.style.transform = `rotate(${second * 6 + 90}deg)`
+            elText.innerText = `${hour.toString().padStart(2, '0')}:${minute.toString().padStart(2, '0')}:${second.toString().padStart(2, '0')}`
+            // .toString() 數字轉文字
+            // .padStart(2,'0') ，.padStart(補到第幾位，前面要用補什麼)，用''代表文字
+        }
+        setInterval(clock, 1000)
+        clock()
+
+    </script>
+</body>
+
+</html>
